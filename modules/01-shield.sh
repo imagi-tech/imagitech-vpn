@@ -38,6 +38,18 @@ fi
     --fullchain-file /etc/imagitech/tls/fullchain.cer \
     --key-file /etc/imagitech/tls/private.key > /dev/null 2>&1
 
+# --- EMERGENCY TLS FALLBACK ---
+# If acme.sh failed (DNS not propagated), the pem file will be empty or missing.
+if [ ! -s "/etc/imagitech/tls/haproxy.pem" ]; then
+    echo -e "${RED}[!] Let's Encrypt failed (DNS not propagated?). Generating Fallback Cert...${NC}"
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout /etc/imagitech/tls/private.key \
+        -out /etc/imagitech/tls/fullchain.cer \
+        -subj "/C=US/ST=NY/L=NY/O=Imagitech/CN=$DOMAIN" > /dev/null 2>&1
+    
+    cat /etc/imagitech/tls/fullchain.cer /etc/imagitech/tls/private.key > /etc/imagitech/tls/haproxy.pem
+fi
+
 # HAProxy requires the public and private keys to be merged into one .pem file
 cat /etc/imagitech/tls/fullchain.cer /etc/imagitech/tls/private.key > /etc/imagitech/tls/haproxy.pem
 chmod 600 /etc/imagitech/tls/haproxy.pem
