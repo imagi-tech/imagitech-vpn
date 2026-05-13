@@ -105,7 +105,7 @@ execute_add_user() {
     sqlite3 "$DB_PATH" "INSERT INTO users (username, password, expiry_date) VALUES ('$USERNAME', '$PASSWORD', '$EXP_DATE');"
 
     clear
-    # 3. Output the exact requested TechSavage format
+    
     echo -e "${GREEN}Account Provisioned Successfully!${NC}"
     echo -e "Copy the details below for your client:"
     echo -e "\n${CYAN}IP            :${NC} ${IP_ADDR}"
