@@ -66,6 +66,10 @@ for MODULE in "${MODULES[@]}"; do
     fi
 done
 
+# Move the Menu to its permanent location BEFORE cleanup
+cp 05-menu.sh /usr/local/sbin/menu
+chmod +x /usr/local/sbin/menu
+
 # Cleanup
 cd /root
 rm -rf /root/imagitech-install
