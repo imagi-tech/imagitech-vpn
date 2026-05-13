@@ -49,6 +49,13 @@ dpkg --configure -a > /dev/null 2>&1
 # --- 4. Package Synchronization & Core Dependencies ---
 echo -e "${CYAN}[*] Synchronizing Repositories & Forcing Dependencies...${NC}"
 
+DEBIAN_FRONTEND=noninteractive apt-get update -y --fix-missing
+
+# Unsilenced installation so we can guarantee dependencies install
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --fix-broken \
+    curl wget jq cron iptables lsof tar unzip uuid-runtime \
+    software-properties-common ca-certificates openssl
+
 DEBIAN_FRONTEND=noninteractive apt-get update -y > /dev/null 2>&1
 
 # Install the absolute baseline tools required for the rest of the modules
