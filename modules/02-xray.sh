@@ -16,7 +16,13 @@ mkdir -p /etc/xray
 mkdir -p /var/log/xray
 
 echo -e "${CYAN}  -> Fetching latest Xray release...${NC}"
-XRAY_VERSION=$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases/latest | jq -r .tag_name)
+# Bypassing jq entirely for maximum compatibility
+XRAY_VERSION=$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases/latest | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+
+if [[ -z "$XRAY_VERSION" ]]; then
+    XRAY_VERSION="v1.8.4" # Hardcoded safety fallback
+fi
+
 wget -q -O /tmp/xray.zip "https://github.com/XTLS/Xray-core/releases/download/${XRAY_VERSION}/Xray-linux-64.zip"
 unzip -q /tmp/xray.zip -d /tmp/xray_extract
 mv /tmp/xray_extract/xray /usr/local/xray/xray
