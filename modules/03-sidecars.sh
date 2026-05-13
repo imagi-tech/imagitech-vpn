@@ -77,7 +77,7 @@ systemctl enable danted > /dev/null 2>&1
 systemctl restart danted
 
 # --- 3. Compile & Deploy DNSTT (SlowDNS) ---
-echo -e "${CYAN}  -> Compiling DNSTT (SlowDNS)...${NC}"
+echo -e "${CYAN}  -> Compiling DNSTT (SlowDNS) with Modern Go...${NC}"
 
 # Free up Port 53 from Ubuntu's systemd-resolved
 if systemctl is-active --quiet systemd-resolved; then
@@ -87,6 +87,21 @@ if systemctl is-active --quiet systemd-resolved; then
     echo "nameserver 8.8.8.8" > /etc/resolv.conf
     echo "nameserver 1.1.1.1" >> /etc/resolv.conf
 fi
+
+# Install modern Go directly from source
+wget -q https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+rm -f go1.21.6.linux-amd64.tar.gz
+
+# Install git and build DNSTT
+DEBIAN_FRONTEND=noninteractive apt-get install -y git > /dev/null 2>&1
+cd /tmp
+git clone https://www.bamsoftware.com/git/dnstt.git > /dev/null 2>&1
+cd dnstt/dnstt-server
+go build > /dev/null 2>&1
+mv dnstt-server /usr/local/sbin/
+rm -rf /tmp/dnstt
 
 # Install Go compiler and build DNSTT
 DEBIAN_FRONTEND=noninteractive apt-get install -y golang git > /dev/null 2>&1
