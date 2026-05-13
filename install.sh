@@ -10,7 +10,7 @@ RED='\033[0;31m'
 NC='\033[0m'
 
 # REPLACE THIS with your actual GitHub Raw URL
-REPO_URL="https://raw.githubusercontent.com/YourUsername/imagitech-vpn/main"
+REPO_URL="https://raw.githubusercontent.com/dexteree11/imagitech-vpn/main/install.sh"
 
 clear
 echo -e "${CYAN}======================================================${NC}"
