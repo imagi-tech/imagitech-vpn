@@ -75,6 +75,8 @@ curl -sL https://get.acme.sh | sh -s email=admin@${DOMAIN} > /dev/null 2>&1
 cat /etc/imagitech/tls/fullchain.cer /etc/imagitech/tls/private.key > /etc/imagitech/tls/stunnel.pem
 chmod 600 /etc/imagitech/tls/stunnel.pem
 
+echo "/bin/false" >> /etc/shells
+
 # --- 6. Apply TCP BBR (Crucial for HTTP Injector Speeds) ---
 echo -e "${CYAN}[*] Optimizing Kernel with TCP BBR...${NC}"
 cat <<EOF >> /etc/sysctl.conf
