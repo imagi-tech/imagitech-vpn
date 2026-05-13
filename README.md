@@ -1,0 +1,2 @@
+# imagitech-vpn
+VPN Autoscript
