@@ -93,9 +93,9 @@ frontend public_443
     # Otherwise, it must be a VLESS-Reality probe (Foreign SNI). Send to Xray.
     default_backend xray_reality
 
-backend xray_reality
-    mode tcp
-    server xray_core 127.0.0.1:10001 send-proxy
+backend grpc_backend
+    mode http
+    server xray_grpc 127.0.0.1:10005 proto h2
 
 backend internal_layer7
     mode tcp
