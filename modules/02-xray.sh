@@ -26,6 +26,8 @@ fi
 wget -q -O /tmp/xray.zip "https://github.com/XTLS/Xray-core/releases/download/${XRAY_VERSION}/Xray-linux-64.zip"
 unzip -q /tmp/xray.zip -d /tmp/xray_extract
 mv /tmp/xray_extract/xray /usr/local/xray/xray
+mv /tmp/xray_extract/geoip.dat /usr/local/xray/geoip.dat
+mv /tmp/xray_extract/geosite.dat /usr/local/xray/geosite.dat
 chmod +x /usr/local/xray/xray
 rm -rf /tmp/xray*
 
