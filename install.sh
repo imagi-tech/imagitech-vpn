@@ -70,11 +70,13 @@ done
 cp 05-menu.sh /usr/local/sbin/menu
 chmod +x /usr/local/sbin/menu
 
-# Cleanup
+# Cleanup and Menu Binding
 cd /root
+# Move the menu directly into the global bin folder before deleting the temp files
+mv /root/imagitech-install/05-menu.sh /usr/bin/menu
+chmod +x /usr/bin/menu
+
 rm -rf /root/imagitech-install
-# Link the menu to a global bin so it can be executed from anywhere
-ln -sf /usr/local/sbin/menu /usr/bin/menu
 
 echo -e "\n${CYAN}======================================================${NC}"
 echo -e "${GREEN}      IMAGITECH DEPLOYMENT COMPLETE                   ${NC}"
