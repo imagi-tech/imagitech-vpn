@@ -127,20 +127,56 @@ EOF
     # Note: A true production script constructs a full AlterInboundRequest protobuf payload here.
     # For robust failover in bash, if API fails, we manipulate JSON and restart gracefully.
     
-    echo -e "\n${GREEN}[+] Account Provisioned Successfully!${NC}"
+echo -e "\n${GREEN}[+] Account Provisioned Successfully!${NC}"
     echo -e "${CYAN}Username :${NC} $USERNAME"
     echo -e "${CYAN}Password :${NC} $PASSWORD"
     echo -e "${CYAN}UUID     :${NC} $UUID"
     echo -e "${CYAN}Expires  :${NC} $EXP_DATE"
-    read -n 1 -s -r -p "Press any key to return to dashboard..."
-    show_dashboard
-}
+    echo -e "${CYAN}Quota    :${NC} ${QUOTA_GB} GB"
 
-execute_restart() {
-    echo -e "\n${CYAN}[*] Gracefully restarting infrastructure...${NC}"
-    systemctl restart haproxy xray dropbear udp-custom dnstt
-    echo -e "${GREEN}[+] Services optimized and reloaded.${NC}"
-    sleep 2
+    # --- Fetch Live Configuration Data ---
+    IP_ADDR=$(curl -sS ipv4.icanhazip.com 2>/dev/null)
+    NS_DOMAIN=$(cat /etc/imagitech/conf/ns_domain.txt 2>/dev/null)
+    REALITY_PUB=$(cat /etc/imagitech/conf/reality_pub.txt 2>/dev/null)
+    REALITY_SHORT=$(cat /etc/imagitech/conf/reality_short.txt 2>/dev/null)
+    DNSTT_PUB=$(cat /etc/imagitech/conf/dnstt_pub.txt 2>/dev/null)
+
+    # --- 1. SSH / WebSocket / UDP Details ---
+    echo -e "\n${MAGENTA}══════════════════════════════════════════════════════${NC}"
+    echo -e " ${BOLD}${ORANGE}        SSH & WEBSOCKET CONFIGURATION (HTTP Custom)${NC}"
+    echo -e "${MAGENTA}══════════════════════════════════════════════════════${NC}"
+    echo -e " IP Address   : ${GREEN}${IP_ADDR}${NC}"
+    echo -e " Host / SNI   : ${GREEN}${DOMAIN}${NC}"
+    echo -e " Dropbear Port: ${GREEN}109${NC}"
+    echo -e " WS TLS Port  : ${GREEN}443${NC} (via HAProxy Shield)"
+    echo -e " WS Path      : ${GREEN}/sshws${NC}"
+    echo -e " UDP-Custom   : ${GREEN}1-65535${NC} (Active for Gaming)"
+    echo -e "\n ${CYAN}Payload WS (Copy/Paste):${NC}"
+    echo -e " GET /sshws HTTP/1.1[crlf]Host: ${DOMAIN}[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]"
+
+    # --- 2. SlowDNS (DNSTT) Details ---
+    echo -e "\n${MAGENTA}══════════════════════════════════════════════════════${NC}"
+    echo -e " ${BOLD}${ORANGE}              SLOWDNS (DNSTT) CONFIGURATION${NC}"
+    echo -e "${MAGENTA}══════════════════════════════════════════════════════${NC}"
+    echo -e " NS Domain    : ${GREEN}${NS_DOMAIN}${NC}"
+    echo -e " Public Key   : ${GREEN}${DNSTT_PUB}${NC}"
+
+    # --- 3. VLESS Reality Details ---
+    echo -e "\n${MAGENTA}══════════════════════════════════════════════════════${NC}"
+    echo -e " ${BOLD}${ORANGE}               VLESS REALITY CONFIGURATION${NC}"
+    echo -e "${MAGENTA}══════════════════════════════════════════════════════${NC}"
+    echo -e " Address      : ${GREEN}${IP_ADDR}${NC}"
+    echo -e " Port         : ${GREEN}443${NC}"
+    echo -e " UUID         : ${GREEN}${UUID}${NC}"
+    echo -e " Network      : ${GREEN}tcp${NC}"
+    echo -e " Flow         : ${GREEN}xtls-rprx-vision${NC}"
+    echo -e " SNI / Peer   : ${GREEN}www.microsoft.com${NC}"
+    echo -e " Fingerprint  : ${GREEN}chrome${NC}"
+    echo -e " Public Key   : ${GREEN}${REALITY_PUB}${NC}"
+    echo -e " Short ID     : ${GREEN}${REALITY_SHORT}${NC}"
+    echo -e "${MAGENTA}══════════════════════════════════════════════════════${NC}\n"
+
+    read -n 1 -s -r -p "Press any key to return to dashboard..."
     show_dashboard
 }
 
