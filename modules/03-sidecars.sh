@@ -89,10 +89,11 @@ if systemctl is-active --quiet systemd-resolved; then
 fi
 
 # Install modern Go directly from source
-wget -q https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
+cd /tmp
+curl -sL -o go.tar.gz https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
 export PATH=$PATH:/usr/local/go/bin
-rm -f go1.21.6.linux-amd64.tar.gz
+rm -f go.tar.gz
 
 # Install git and build DNSTT
 DEBIAN_FRONTEND=noninteractive apt-get install -y git > /dev/null 2>&1
