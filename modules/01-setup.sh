@@ -34,7 +34,7 @@ echo -e "${CYAN}[*] Installing ISP Bypass Dependencies (Stunnel, Dante, Python).
 DEBIAN_FRONTEND=noninteractive apt-get update -y --fix-missing > /dev/null 2>&1
 
 DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends --fix-broken \
-    curl wget cron iptables lsof tar unzip uuid-runtime \
+    curl wget git cron iptables lsof tar unzip uuid-runtime \
     software-properties-common ca-certificates openssl \
     dropbear stunnel4 dante-server python3 make cmake gcc g++ build-essential > /dev/null 2>&1
 
