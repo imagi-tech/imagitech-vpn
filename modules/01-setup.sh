@@ -71,6 +71,15 @@ curl -sL https://get.acme.sh | sh -s email=admin@${DOMAIN} > /dev/null 2>&1
     --fullchain-file /etc/imagitech/tls/fullchain.cer \
     --key-file /etc/imagitech/tls/private.key > /dev/null 2>&1
 
+# --- EMERGENCY TLS FALLBACK ---
+if [ ! -s "/etc/imagitech/tls/fullchain.cer" ]; then
+    echo -e "${RED}[!] Let's Encrypt failed. Generating Fallback Cert...${NC}"
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout /etc/imagitech/tls/private.key \
+        -out /etc/imagitech/tls/fullchain.cer \
+        -subj "/C=US/ST=NY/L=NY/O=Imagitech/CN=$DOMAIN" > /dev/null 2>&1
+fi
+
 # Stunnel requires a combined PEM file
 cat /etc/imagitech/tls/fullchain.cer /etc/imagitech/tls/private.key > /etc/imagitech/tls/stunnel.pem
 chmod 600 /etc/imagitech/tls/stunnel.pem
