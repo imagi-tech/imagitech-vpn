@@ -66,16 +66,14 @@ for MODULE in "${MODULES[@]}"; do
     fi
 done
 
-# Move the Menu to its permanent location BEFORE cleanup
+# Omnipresent Menu Binding
+cp 05-menu.sh /usr/bin/menu
 cp 05-menu.sh /usr/local/sbin/menu
+chmod +x /usr/bin/menu
 chmod +x /usr/local/sbin/menu
 
-# Cleanup and Menu Binding
+# Cleanup
 cd /root
-# Move the menu directly into the global bin folder before deleting the temp files
-mv /root/imagitech-install/05-menu.sh /usr/bin/menu
-chmod +x /usr/bin/menu
-
 rm -rf /root/imagitech-install
 
 echo -e "\n${CYAN}======================================================${NC}"
