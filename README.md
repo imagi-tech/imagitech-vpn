@@ -5,9 +5,9 @@
 ![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-brightgreen?style=for-the-badge)
 ![HTTPS](https://img.shields.io/badge/HTTPS-Let's%20Encrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white)
 ![Single File](https://img.shields.io/badge/Architecture-Single%20File-blueviolet?style=for-the-badge)
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6C63FF,100:00D4FF&height=100&section=header&text=FileStation&fontSize=40&fontColor=white&animation=fadeIn"/>
-</p>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:6C63FF,100:00D4FF&height=3"/>
+
 ![GitHub Stars](https://img.shields.io/github/stars/DDreamer01/FileStation?style=social)
 ![GitHub Forks](https://img.shields.io/github/forks/DDreamer01/FileStation?style=social)
 ![GitHub Issues](https://img.shields.io/github/issues/DDreamer01/FileStation?color=red)
