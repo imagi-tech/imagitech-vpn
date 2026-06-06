@@ -1,18 +1,15 @@
 # ??? O365 Enterprise & ADFS Auth Checker
-![Python](https://img.shields.io/badge/Python-3.7+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![Platform](https://img.shields.io/badge/Platform-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-brightgreen?style=for-the-badge)
-![HTTPS](https://img.shields.io/badge/HTTPS-Let's%20Encrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white)
-![Single File](https://img.shields.io/badge/Architecture-Single%20File-blueviolet?style=for-the-badge)
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:6C63FF,100:00D4FF&height=3"/>
-
-![GitHub Stars](https://img.shields.io/github/stars/DDreamer01/FileStation?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/DDreamer01/FileStation?style=social)
-![GitHub Issues](https://img.shields.io/github/issues/DDreamer01/FileStation?color=red)
-![GitHub Last Commit](https://img.shields.io/github/last-commit/DDreamer01/FileStation?color=orange)
-![Repo Size](https://img.shields.io/github/repo-size/DDreamer01/FileStation?color=blue)
+<p align="center">
+  <a href="#-one-click-installation-debianubuntu">
+    <img src="https://img.shields.io/badge/⚡%20One--Click%20Install-Debian%20%7C%20Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"/>
+  </a>
+  <a href="server.py">
+    <img src="https://img.shields.io/badge/📦%20Single%20File-server.py-6C63FF?style=for-the-badge"/>
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/📝%20MIT-License-00C853?style=for-the-badge"/>
+  </a>
+</p>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=200&section=header&text=FileStation&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Lightning-fast%20Python%20web%20file%20manager&descAlignY=55&descSize=18"/>
