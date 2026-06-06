@@ -11,6 +11,16 @@
   </a>
 </p>
 
+| ⚡ Feature | 📋 Description |
+|---|---|
+| 🗂️ Single File | Entire app in one `server.py` |
+| 📤 Chunked Uploads | Resume 5GB+ uploads seamlessly |
+| 📁 Folder Drag & Drop | Recreates nested folder trees |
+| 🎬 Media Preview | Streams video, audio, renders Markdown |
+| 🔐 Let's Encrypt SSL | Built-in HTTPS, zero config |
+| 👁️ Public Mode | Guest read-only without browser prompts |
+| 🌙 Glassmorphic UI | Dark mode, mobile-friendly |
+
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=200&section=header&text=FileStation&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Lightning-fast%20Python%20web%20file%20manager&descAlignY=55&descSize=18"/>
 </p>
