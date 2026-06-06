@@ -1,4 +1,10 @@
 # ??? O365 Enterprise & ADFS Auth Checker
+![Python](https://img.shields.io/badge/Python-3.7+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero-brightgreen?style=for-the-badge)
+![HTTPS](https://img.shields.io/badge/HTTPS-Let's%20Encrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white)
+![Single File](https://img.shields.io/badge/Architecture-Single%20File-blueviolet?style=for-the-badge)
 
 A high-speed, cross-platform, asynchronous authentication checker for Microsoft 365 and Enterprise ADFS accounts. Built natively on Python and Playwright, this tool utilizes headless browser contexts to accurately mimic human logins, bypass standard behavioral blocks, and dynamically route federated university/corporate portals.
 
