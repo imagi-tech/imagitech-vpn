@@ -14,6 +14,10 @@
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/DDreamer01/FileStation?color=orange)
 ![Repo Size](https://img.shields.io/github/repo-size/DDreamer01/FileStation?color=blue)
 
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,20,24&height=200&section=header&text=FileStation&fontSize=60&fontColor=ffffff&animation=twinkling&fontAlignY=35&desc=Lightning-fast%20Python%20web%20file%20manager&descAlignY=55&descSize=18"/>
+</p>
+
 A high-speed, cross-platform, asynchronous authentication checker for Microsoft 365 and Enterprise ADFS accounts. Built natively on Python and Playwright, this tool utilizes headless browser contexts to accurately mimic human logins, bypass standard behavioral blocks, and dynamically route federated university/corporate portals.
 
 ## ? Key Features
