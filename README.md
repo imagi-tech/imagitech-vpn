@@ -20,6 +20,7 @@
 | 🔐 Let's Encrypt SSL | Built-in HTTPS, zero config |
 | 👁️ Public Mode | Guest read-only without browser prompts |
 | 🌙 Glassmorphic UI | Dark mode, mobile-friendly |
+
 **👁️Single-File Architecture:** The entire backend, frontend HTML, CSS, and vanilla JS are packed into a single `server.py` file. Just drop it and run.
 
 <p align="center">
