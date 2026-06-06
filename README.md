@@ -6,6 +6,12 @@
 ![HTTPS](https://img.shields.io/badge/HTTPS-Let's%20Encrypt-003A70?style=for-the-badge&logo=letsencrypt&logoColor=white)
 ![Single File](https://img.shields.io/badge/Architecture-Single%20File-blueviolet?style=for-the-badge)
 
+![GitHub Stars](https://img.shields.io/github/stars/DDreamer01/FileStation?style=social)
+![GitHub Forks](https://img.shields.io/github/forks/DDreamer01/FileStation?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/DDreamer01/FileStation?color=red)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/DDreamer01/FileStation?color=orange)
+![Repo Size](https://img.shields.io/github/repo-size/DDreamer01/FileStation?color=blue)
+
 A high-speed, cross-platform, asynchronous authentication checker for Microsoft 365 and Enterprise ADFS accounts. Built natively on Python and Playwright, this tool utilizes headless browser contexts to accurately mimic human logins, bypass standard behavioral blocks, and dynamically route federated university/corporate portals.
 
 ## ? Key Features
